@@ -4,6 +4,14 @@
 
 {% block body %}
 <div>
-    Liste des produits.
+    <ol>
+        {% for produit in produits %}
+        <li>
+            <a href="{{ path('produit_details', {'id':produit.id}) }}">Détails</a>
+            {{ produit.nom }} / {{ produit.prix }}
+        </li>
+        {% endfor %}
+    </ol>
+
 </div>
 {% endblock %}

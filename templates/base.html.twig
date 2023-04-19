@@ -13,6 +13,14 @@
     <header>
         {% include 'base_header.html.twig' %}
     </header>
+    {# Lis et affiche les messages flash #}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
         <body>
         {% block body %}{% endblock %}
     </body>

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div>
+    {{ form_start(produitForm) }}
+    {{ form_widget(produitForm) }}
+    <button>Valider</button>
+    {{ form_end(produitForm) }}
+</div>
+{% endblock %}
+
+{% block title %}
+Nouveau produit
+{% endblock %}
+
