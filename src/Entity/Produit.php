@@ -25,6 +25,9 @@ class Produit
     #[ORM\OneToMany(mappedBy: 'produit', targetEntity: LigneCommande::class)]
     private Collection $lignesCommandes;
 
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $description = null;
+
     public function __construct()
     {
         $this->lignesCommandes = new ArrayCollection();
@@ -85,6 +88,18 @@ class Produit
                 $lignesCommande->setProduit(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
